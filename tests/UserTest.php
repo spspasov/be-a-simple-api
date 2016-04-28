@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 
@@ -51,11 +49,13 @@ class UserTest extends TestCase
     /** @test */
     public function it_updates_a_user()
     {
-        factory(App\User::class, 1)->create();
+        $user = factory(App\User::class, 1)->create(['gender' => 'm']);
+        $id = $user->id;
 
-        $id = App\User::first()->id;
+        $firstName = $user->first_name;
+        $lastName = $user->last_name;
 
-        $this->json('PUT', '/users/' . $id, [
+        $this->json('PUT', "/users/$id", [
             'gender' => 'f',
         ])
             ->seeJsonStructure([
@@ -63,5 +63,11 @@ class UserTest extends TestCase
                 'data',
             ])
             ->seeStatusCode(200);
+
+        $user = App\User::find($id);
+
+        $this->assertEquals($firstName, $user->first_name);
+        $this->assertEquals($lastName, $user->last_name);
+        $this->assertEquals('f', $user->gender);
     }
 }
