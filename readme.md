@@ -20,7 +20,7 @@ For running the tests, you must also have `npm` and `gulp` installed. You can vi
     ```
 
 2. Create a MySQL database with a name of your choosing.
-3. Enter the required details for the database in the .env file located in the root of the project.
+3. Enter the required details for the database in the `.env` file located in the root of the project.
 4. Run composer to install all the dependecies:
 
     ```sh
@@ -39,11 +39,11 @@ For running the tests, you must also have `npm` and `gulp` installed. You can vi
     $ php artisan serve
     ```
 
-6. Visit http://localhost:8000/
+6. Visit `http://localhost:8000/`
 
 ## Running the tests
 
-1. Install npm dependencies:
+1. Install `npm` dependencies:
 
     ```sh
     $ npm install
