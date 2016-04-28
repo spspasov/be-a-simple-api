@@ -12,6 +12,10 @@
 |
 */
 
+Route::get('/', function() {
+   return "<h1>Hello</h1>";
+});
+
 Route::get('users', [
     'as'   => 'users.all',
     'uses' => 'UsersController@get',
