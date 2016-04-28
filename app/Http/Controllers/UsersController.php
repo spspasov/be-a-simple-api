@@ -33,7 +33,11 @@ class UsersController extends Controller
      */
     public function post()
     {
-        $data = Request::only('gender', 'first_name', 'last_name');
+        $data = Request::only(
+            'gender', 
+            'first_name', 
+            'last_name'
+        );
 
         if ($user = User::create($data)) {
 
@@ -57,7 +61,13 @@ class UsersController extends Controller
      */
     public function put($userId)
     {
-        $data = Request::only('gender', 'first_name', 'last_name');
+        $data = Request::only(
+            'gender', 
+            'first_name', 
+            'last_name'
+        );
+
+        $data = array_filter($data);
 
         $user = User::find($userId);
         $user->update($data);

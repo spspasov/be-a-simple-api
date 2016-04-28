@@ -33,7 +33,12 @@ class CoursesController extends Controller
      */
     public function post()
     {
-        $data = Request::only('begin', 'end', 'title', 'candidate_limit');
+        $data = Request::only(
+            'begin',
+            'end',
+            'title',
+            'candidate_limit'
+        );
 
         $validator = $this->validator($data);
 
