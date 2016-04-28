@@ -1,27 +1,57 @@
-# Laravel PHP Framework
+# Laravel API
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+A simple API built in Laravel.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+## Prerequisites
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+You must have `composer` installed. For further information, visit the official composer page:
 
-## Official Documentation
+https://getcomposer.org/doc/00-intro.md#globally
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+For running the tests, you must also have `npm` and `gulp` installed. You can visit their respective documentations for instructions on how to get them installed.
 
-## Contributing
+## Installation
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+1. Clone the repository into a folder on your computer:
 
-## Security Vulnerabilities
+    ```sh
+    $ git clone https://github.com/spspasov/be-a-simple-api.git
+    $ cd be-a-simple-api
+    ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+2. Create a MySQL database with a name of your choosing.
+3. Enter the required details for the database in the .env file located in the root of the project.
+4. Run composer to install all the dependecies:
 
-## License
+    ```sh
+    $ composer install
+    ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+    4.1 You might need to run the migrations as well:
+
+    ```sh
+    $ php artisan migrate
+    ```
+
+5. Run a local server from the root of the project by running:
+
+    ```sh
+    $ php artisan serve
+    ```
+
+6. Visit http://localhost:8000/
+
+## Running the tests
+
+1. Install npm dependencies:
+
+    ```sh
+    $ npm install
+    ```
+
+2. Create a second database for the tests. You must edit the `config/database.php` file and provide credentials for the `mysql_testing` database driver. It's easiest if you just create a database with a name  like `database_name_testing` and use the same credentials you used for your main database.
+3. Run gulp in *test* mode:
+
+    ```sh
+    $ gulp tdd
+    ```
